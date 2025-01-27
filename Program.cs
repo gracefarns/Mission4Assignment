@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // Create an array to store the tic-tac-toe board outcomes
+using Mission4Assignment;
+
 char[,] board = new char[3, 3]
 {
     { ' ', ' ', ' ' },
@@ -90,10 +92,11 @@ while (true)
         Console.WriteLine("Cell is already taken. Try again.");
         continue; // Skip turn, try again
     }
-    
-    // Print updated board
-    // PrintBoard(board);
-    
+
+    //Print updated board
+     Support support = new Support();
+     support.PrintBoard(board);
+
     // Switch between player's turns
     isPlayer1Turn = !isPlayer1Turn;
 }

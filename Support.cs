@@ -9,7 +9,7 @@ namespace Mission4Assignment
     public class Support
     {
 
-        public void PrintBoard(string[,] board)
+        public void PrintBoard(char[,] board)
         {
             Console.WriteLine("   1 2 3");
 
@@ -28,7 +28,7 @@ namespace Mission4Assignment
             }
         }
 
-        public string CheckBoard(string[,] board)
+        public string CheckBoard(char[,] board)
         {
             string winnerMsg = "";
 
