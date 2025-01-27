@@ -11,7 +11,7 @@ namespace Mission4Assignment
 
         public void PrintBoard(char[,] board)
         {
-            Console.WriteLine("   1 2 3");
+            Console.WriteLine("   1   2   3");
 
             for (int i = 0; i < board.GetLength(0); i++)
             {
@@ -21,10 +21,16 @@ namespace Mission4Assignment
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
                     Console.Write(board[i, j] + ' ');
+                    
+                    // Add separator between columns
+                    if (j < 2) Console.Write("| ");
                 }
 
                 //print new line for next row
                 Console.WriteLine();
+                
+                // Add separator between rows
+                if (i < 2) Console.WriteLine("  ---+---+---");
             }
         }
 
