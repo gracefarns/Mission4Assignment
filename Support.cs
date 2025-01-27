@@ -9,7 +9,7 @@ namespace Mission4Assignment
     public class Support
     {
 
-        public void PrintBoard(char[,] board)
+        public void PrintBoard(string[,] board)
         {
             Console.WriteLine("   1   2   3");
 
@@ -34,7 +34,7 @@ namespace Mission4Assignment
             }
         }
 
-        public string CheckBoard(char[,] board)
+        public string CheckBoard(string[,] board)
         {
             string winnerMsg = "";
 
@@ -42,24 +42,24 @@ namespace Mission4Assignment
             for (int i = 0; i < board.GetLength(0); i++)
             {
                 // check the rows for a winner
-                if ((board[i, 0] == board[i, 1]) && (board[i, 1] == board[i, 2]) && (board[i, 0] != ' '))
+                if ((board[i, 0] == board[i, 1]) && (board[i, 1] == board[i, 2]) && (board[i, 0] != " "))
                 {
                     winnerMsg = ($"{board[i, 0]} is the winner");
                     break;
                 }
                 // check the columns for a winner
-                else if ((board[0, i] == board[1, i]) && (board[1, i] == board[2, i]) && (board[0, i] != ' '))
+                else if ((board[0, i] == board[1, i]) && (board[1, i] == board[2, i]) && (board[0, i] != " "))
                 {
                     winnerMsg = ($"{board[0, i]} is the winner");
                     break;
                 }
                 // check the diagonals for a winner
-                else if ((board[0, 0] == board[1, 1]) && (board[1, 1] == board[2, 2]) && (board[1, 1] != ' '))
+                else if ((board[0, 0] == board[1, 1]) && (board[1, 1] == board[2, 2]) && (board[1, 1] != " "))
                 {
                     winnerMsg = ($"{board[1, 1]} is the winner");
                     break;
                 }
-                else if ((board[2, 0] == board[1, 1]) && (board[1, 1] == board[0, 2]) && (board[1, 1] != ' '))
+                else if ((board[2, 0] == board[1, 1]) && (board[1, 1] == board[0, 2]) && (board[1, 1] != " "))
                 {
                     winnerMsg = ($"{board[1, 1]} is the winner");
                     break;
