@@ -82,13 +82,29 @@ public class Driver
         
         // Ask user for confirmation, if they type "Y", it will store their inputs in the array, if "N" it will
         // Tell them to select a row and column
-        Console.WriteLine($"You selected row: {rowInput + 1}, column: {colInput + 1}. Continue? (Y/N): ");
-        string confirmation = Console.ReadLine()?.ToUpper(); // convert y or n to uppercase for confirmation
-        if (confirmation != "Y")
+
+        string confirmation; // Declare variable before using it
+        
+        while (true)
         {
-            Console.WriteLine("Try again.");
-            continue; // Go back to the beginning of player's turn.
+            Console.WriteLine($"You selected row: {rowInput + 1}, column: {colInput + 1}. Continue? (Y/N): ");
+            confirmation = Console.ReadLine()?.Trim().ToUpper();
+
+            if (confirmation == "Y")
+            {
+                break; // Go back to the beginning of player's turn.
+            }
+            else if (confirmation == "N")
+            {
+                Console.WriteLine("Try again.");
+                continue; // Restart turn selection
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 'Y' or 'N'.");
+            }
         }
+        
         
         // Check if the cell they selected is already empty
         if (board[rowInput, colInput] == " ")
