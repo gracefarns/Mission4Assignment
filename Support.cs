@@ -37,6 +37,7 @@ namespace Mission4Assignment
         public string CheckBoard(string[,] board)
         {
             string winnerMsg = "";
+            bool isBoardFull = true;
 
 
             for (int i = 0; i < board.GetLength(0); i++)
@@ -48,22 +49,38 @@ namespace Mission4Assignment
                     break;
                 }
                 // check the columns for a winner
-                else if ((board[0, i] == board[1, i]) && (board[1, i] == board[2, i]) && (board[0, i] != " "))
+                if ((board[0, i] == board[1, i]) && (board[1, i] == board[2, i]) && (board[0, i] != " "))
                 {
                     winnerMsg = ($"{board[0, i]} is the winner");
                     break;
                 }
+
+                // check for a draw
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    if (board[i, j] == " ") // Found an empty space, board is not full
+                    {
+                        isBoardFull = false;
+                    }
+                }
+
                 // check the diagonals for a winner
-                else if ((board[0, 0] == board[1, 1]) && (board[1, 1] == board[2, 2]) && (board[1, 1] != " "))
+                if ((board[0, 0] == board[1, 1]) && (board[1, 1] == board[2, 2]) && (board[1, 1] != " "))
                 {
                     winnerMsg = ($"{board[1, 1]} is the winner");
                     break;
                 }
-                else if ((board[2, 0] == board[1, 1]) && (board[1, 1] == board[0, 2]) && (board[1, 1] != " "))
+                if ((board[2, 0] == board[1, 1]) && (board[1, 1] == board[0, 2]) && (board[1, 1] != " "))
                 {
                     winnerMsg = ($"{board[1, 1]} is the winner");
                     break;
                 }
+
+                if (isBoardFull)
+                {
+                    winnerMsg = "It's a draw!";
+                }
+
                 else
                 {
                     winnerMsg = "Next player's turn";
